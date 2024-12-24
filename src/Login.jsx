@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     if (formData.username == "admin" && formData.password == "admin123") {
       setAuth(true);
-      window.location = "/";
+      window.location = "/tasks";
     } else {
       setError("Invalid username or password");
     }
