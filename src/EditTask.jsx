@@ -14,10 +14,8 @@ const EditTask = () => {
 
   useEffect(() => {
     axios.get(`http://localhost:5000/tasks/${id}`).then((res) => {
-      // Assuming the response contains due_date in a valid date format, if not, convert it.
       const fetchedTask = res.data;
 
-      // Check if the date is in a valid format, and convert it to YYYY-MM-DD if needed.
       const formattedDueDate = new Date(fetchedTask.due_date)
         .toISOString()
         .split("T")[0];
@@ -25,12 +23,11 @@ const EditTask = () => {
       setTask({
         title: fetchedTask.title,
         description: fetchedTask.description,
-        due_date: formattedDueDate, // Ensure it's in YYYY-MM-DD format
+        due_date: formattedDueDate,
       });
     });
   }, [id]);
 
-  // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTask({
@@ -39,7 +36,6 @@ const EditTask = () => {
     });
   };
 
-  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     axios

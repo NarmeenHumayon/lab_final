@@ -9,7 +9,6 @@ const NewTask = () => {
     due_date: "",
   });
 
-  // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTask({
@@ -18,7 +17,6 @@ const NewTask = () => {
     });
   };
 
-  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
