@@ -13,6 +13,7 @@ function App() {
       .get("http://localhost:5000/tasks")
       .then((res) => {
         setTasks(res.data);
+        console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -27,6 +28,7 @@ function App() {
             title={task.title}
             description={task.description}
             dueDate={task.due_date}
+            id={task._id}
           />
         ))}
 
