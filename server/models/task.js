@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
  
-const tasksSchema = mongoose.Schema({
-    user_id: { type: String, required: true },  
+const tasksSchema = mongoose.Schema({ 
     title: { type: String, required: true }, 
     description: { type: String, required: false }, 
     due_date: { type: Date, required: true }
