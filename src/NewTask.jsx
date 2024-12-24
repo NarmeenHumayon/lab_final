@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./NewTask.css";
 import NavBar from "../components/NavBar";
+import axios from "axios";
 const NewTask = () => {
   const [task, setTask] = useState({
     title: "",
@@ -20,10 +21,14 @@ const NewTask = () => {
   // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can add the task creation logic here (e.g., send data to backend)
-    console.log("New Task Created:", task);
-    // Reset the form
-    setTask({ title: "", description: "", due_date: "" });
+    axios
+      .post("http://localhost:5000/tasks", task)
+      .then((res) => {
+        window.location = "/tasks";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
