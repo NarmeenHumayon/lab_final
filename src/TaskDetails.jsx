@@ -22,7 +22,7 @@ const TaskDetails = () => {
       });
   };
   if (!task) {
-    return <div>Loading...</div>;
+    return <div>Narmeen Lab Final is Loading...</div>;
   }
 
   return (
