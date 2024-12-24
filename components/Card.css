@@ -7,7 +7,10 @@
   margin: 10px 0;
   width: 100%;
   max-width: 400px;
+  cursor: pointer;
+  user-select: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 20px;
 }
 
 .task-card:hover {
