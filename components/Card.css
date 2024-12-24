@@ -4,6 +4,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  padding-bottom: 10px;
   margin: 10px 0;
   width: 100%;
   max-width: 400px;
@@ -12,7 +13,19 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   margin: 20px;
 }
-
+.hover-btn {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.task-card:hover .hover-btn {
+  opacity: 1;
+}
+.edit svg {
+  fill: rgb(150, 115, 18);
+}
+.complete svg {
+  fill: green;
+}
 .task-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -33,4 +46,10 @@
 .task-due-date {
   color: #d9534f;
   font-size: 14px;
+}
+.svgs {
+  margin-left: 90%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
