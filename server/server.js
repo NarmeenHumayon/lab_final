@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const multer = require("multer");
-const path = require('path');
 const mongoose = require('mongoose');
 const tasksModel = require("./models/task")
 require("dotenv").config()
@@ -11,38 +9,12 @@ mongoose.connect(process.env.CONNECTION_STRING)
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const storage = multer.diskStorage({
-    destination: (req,file,cb)=>{
-        return cb(null,"./uploads")
-    },
-    filename:(req,file,cb)=>{
-        return cb(null,`${Date.now()}-${file.originalname}`)
-    }
-});
-const upload = multer({storage:storage})
+
 app.use(cors());
 app.use(bodyParser.json());
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
-});
-
-
-// Serving the uploaded files over the api
-app.get('/uploads/:filename', (req, res) => {
-    const filename = req.params.filename;
-    const filePath = path.join(__dirname, 'uploads', filename);
-
-    res.sendFile(filePath, (err) => {
-        if (err) {
-            if (err.code === 'ENOENT') {
-                res.status(404).json({ message: 'Image not found' });
-            } else {
-                console.error('Error sending file:', err);
-                res.status(500).json({ message: 'Internal Server Error' });
-            }
-        }
-    });
 });
 
  
