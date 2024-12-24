@@ -23,10 +23,19 @@
   font-size: 18px;
   color: #666;
   margin-bottom: 10px;
+  min-height: 40vh;
+  min-width: 60vw;
+  text-align: center;
 }
 
 .task-detail .task-info {
   margin-bottom: 20px;
+}
+.task-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .task-detail .task-info label {
